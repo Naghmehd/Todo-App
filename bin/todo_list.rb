@@ -10,7 +10,7 @@ class TodoList
   end
 
   def add_item(name)
-    todo_item.push(TodoItem.new(name))
+    @todo_items.push(name)
   end
 
   def remove_item(name)
@@ -75,21 +75,14 @@ class Welcome
     puts " ---------Todo List----------"
     puts "\n"
     puts " Enter you items: "
+    puts "\n"
 
     todo_list = TodoList.new
 
     loop do
-      @name = gets.chomp
+      name = gets.chomp
 
       @todo_list.add_item(name)
-
-      todo_list = TodoList.new(name)
-      # todo_list.add_item("Flour")
-      # todo_list.add_item("Sugar")
-      # todo_list.add_item("Oil")
-      # todo_list.add_item("Blueberries")
-      # todo_list.add_item("Apple")
-      # todo_list.add_item("Banana")
 
       if todo_list.remove_item(name)
         puts "#{name} were removed from the list."
@@ -98,11 +91,10 @@ class Welcome
 
       if todo_list.mark_complete(name)
         puts "#{name} was marked as complete"
+      puts "\n"
 
       print_list
-      # todo_list.print_list
-      # todo_list.print_list('complete')
-      # todo_list.print_list('incomplete')
+
       end
     end
   end
