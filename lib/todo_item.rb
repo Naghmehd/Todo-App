@@ -1,7 +1,7 @@
 class TodoItem
- attr_reader :name
+  attr_reader :name
 
-  def initialize
+  def initialize(name)
      @name = name
      @complete = false
   end
